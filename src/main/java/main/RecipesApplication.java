@@ -26,9 +26,9 @@ public class RecipesApplication {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Recipe.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		List<Recipe> recipes = new ArrayList<>();
-		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("data/30_Minute_Chili.xml")));
-		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("data/Amaretto_Cake.xml")));
-		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("data/Another_Zucchini_Dish.xml")));
+		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("recipes/30_Minute_Chili.xml")));
+		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("recipes/Amaretto_Cake.xml")));
+		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("recipes/Another_Zucchini_Dish.xml")));
 
 		new RecipeRepository(recipes);
 	}

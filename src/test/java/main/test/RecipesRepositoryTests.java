@@ -37,7 +37,7 @@ public class RecipesRepositoryTests {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Recipe.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		List<Recipe> recipes = new ArrayList<>();
-		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("data/" + RECIPE + ".xml")));
+		recipes.add((Recipe) jaxbUnmarshaller.unmarshal(new File("recipes/" + RECIPE + ".xml")));
 
 		new RecipeRepository(recipes);
 	}

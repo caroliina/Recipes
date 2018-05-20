@@ -26,6 +26,11 @@ public class RecipeController {
 	@Autowired
 	private RecipeRepository recipeRepository;
 
+	private final String PROVIDE_TITLE = "Provide a title for the recipe.";
+	private final String NO_MATCH = "No matches found.";
+	private final String RECIPE_EXISTS = "Recipe with the same name already exists.";
+	private final String NO_RECIPES_CATEGORY = "There are no recipes with this category.";
+
 	/*
 	 * Get all recipes if no parameters specified. Find recipes by exact category if
 	 * category parameter is specified. Find recipes by category and name if search
@@ -43,7 +48,7 @@ public class RecipeController {
 		if (category != null) {
 			filteredRecipes = recipeRepository.findRecipesByCategory(category);
 			if (filteredRecipes.isEmpty()) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No categories like " + category + " found.");
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(NO_RECIPES_CATEGORY);
 			} else {
 				return ResponseEntity.ok(recipesListToJsonObject(filteredRecipes));
 			}
@@ -56,7 +61,7 @@ public class RecipeController {
 			filteredRecipes.addAll(recipeRepository.findRecipesByCategory(search));
 			filteredRecipes.addAll(recipeRepository.findRecipesByName(search));
 			if (filteredRecipes.isEmpty()) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Nothing matched the search string.");
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(NO_MATCH);
 			} else {
 				return ResponseEntity.ok(recipesListToJsonObject(filteredRecipes));
 			}
@@ -80,9 +85,14 @@ public class RecipeController {
 	@RequestMapping(value = "/recipes/addRecipe", method = RequestMethod.PUT)
 	public HttpEntity<Object> addRecipe(@RequestBody Recipe recipe) {
 		List<Recipe> recipes = recipeRepository.getRecipes();
+
+		if (recipe.getHead().getTitle() == null) {
+			return new ResponseEntity<>(PROVIDE_TITLE, HttpStatus.BAD_REQUEST);
+		}
+
 		for (Recipe r : recipes) {
 			if (recipe.getHead().getTitle().equalsIgnoreCase(r.getHead().getTitle())) {
-				return new ResponseEntity<>("Recipe with the same name already exists!", HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<>(RECIPE_EXISTS, HttpStatus.BAD_REQUEST);
 			}
 		}
 		recipeRepository.addRecipe(recipe);

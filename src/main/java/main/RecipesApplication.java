@@ -15,10 +15,10 @@ import main.model.Recipe;
 import main.repository.RecipeRepository;
 
 @SpringBootApplication
-public class RecipesMendixApplication {
+public class RecipesApplication {
 
 	public static void main(String[] args) throws JAXBException {
-		SpringApplication.run(RecipesMendixApplication.class, args);
+		SpringApplication.run(RecipesApplication.class, args);
 
 		/*
 		 * Put the recipes from xml files to recipeRepository

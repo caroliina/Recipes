@@ -37,6 +37,9 @@ public class RecipeController {
 
 		List<Recipe> filteredRecipes = new ArrayList<>();
 
+		/*
+		 * Search for full matches in categories
+		 */
 		if (category != null) {
 			filteredRecipes = recipeRepository.findRecipesByCategory(category);
 			if (filteredRecipes.isEmpty()) {
@@ -46,6 +49,9 @@ public class RecipeController {
 			}
 		}
 
+		/*
+		 * Search for strings in recipe categories and names
+		 */
 		if (search != null) {
 			filteredRecipes.addAll(recipeRepository.findRecipesByCategory(search));
 			filteredRecipes.addAll(recipeRepository.findRecipesByName(search));
@@ -63,7 +69,7 @@ public class RecipeController {
 	/*
 	 * Get all recipe categories.
 	 */
-	@RequestMapping(value= "/recipes/categories", method = RequestMethod.GET)
+	@RequestMapping(value = "/recipes/categories", method = RequestMethod.GET)
 	public ResponseEntity<List<String>> getCategories() {
 		return ResponseEntity.ok(recipeRepository.getAllCategories());
 	}

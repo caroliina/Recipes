@@ -33,7 +33,7 @@ public class RecipesRepositoryTests {
 	private final String RECIPE_CATEGORIES = "[Main dish, Chili]";
 
 	@Before
-	public void initRecipe() throws JAXBException {
+	public void createRecipeForTesting() throws JAXBException {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Recipe.class);
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		List<Recipe> recipes = new ArrayList<>();

@@ -77,7 +77,7 @@ public class RecipeController {
 	/*
 	 * Add a new recipe. When a recipe with the same name exists, return error.
 	 */
-	@RequestMapping(value = "/recipes/addRecipe", method = RequestMethod.POST)
+	@RequestMapping(value = "/recipes/addRecipe", method = RequestMethod.PUT)
 	public HttpEntity<Object> addRecipe(@RequestBody Recipe recipe) {
 		List<Recipe> recipes = recipeRepository.getRecipes();
 		for (Recipe r : recipes) {

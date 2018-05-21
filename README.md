@@ -7,6 +7,7 @@
 * JUnit 4
 
 The project should be imported as a Spring Boot application and for testing JUnit runner should be used.
+The tests class is called RecipesRepositoryTests.
 
 
 After running the application locally the following endpoints will be available:

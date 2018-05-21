@@ -19,7 +19,7 @@ After running the application locally the following endpoints will be available:
 If the request is successful JSON data will be returned; otherwise an error message.
 
 
-An example for testing addRecipe functionality (with Postman application for example):
+An example (can also be found in the Recipes/recipes/test_recipe/ folder) for testing addRecipe functionality (with Postman application for example):
 ```
 <recipe>
     <head>

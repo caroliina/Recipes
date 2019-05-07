@@ -12,8 +12,8 @@ The tests class is called RecipesRepositoryTests.
 
 
 After running the application locally the following endpoints will be available:
-* GET http://localhost:8080/recipes Returns all recipes available.
-* GET http://localhost:8080/recipes?search=chili Searches for matches is recipe titles and categories.
+* GET http://localhost:8080/recipes Returns all available recipes.
+* GET http://localhost:8080/recipes?search=chili Searches for matches in recipe titles and categories.
 * GET http://localhost:8080/recipes?category=microwave Searches for categories that have a full match with the parameter string.
 * PUT http://localhost:8080/recipes/addRecipe Adds a new recipe if a recipe with the same title does not exist already.
 

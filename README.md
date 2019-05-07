@@ -6,20 +6,22 @@
 * Maven 4.0.0
 * JUnit 4
 
-The project should be imported as a Spring Boot application and for testing JUnit runner should be used.
+## Introduction
+The project should be imported as a Spring Boot application and JUnit runner should be used for testing.
 The tests class is called RecipesRepositoryTests.
 
 
 After running the application locally the following endpoints will be available:
-* http://localhost:8080/recipes // Returns all recipes available.
-* http://localhost:8080/recipes?search=chili // Searches for matches is recipe titles and categories.
-* http://localhost:8080/recipes?category=microwave // Searches for categories that have a full match with the parameter string.
-* PUT localhost:8080/recipes/addRecipe // Adds a new recipe if a recipe with the same title does not exist already.
+* GET http://localhost:8080/recipes Returns all recipes available.
+* GET http://localhost:8080/recipes?search=chili Searches for matches is recipe titles and categories.
+* GET http://localhost:8080/recipes?category=microwave Searches for categories that have a full match with the parameter string.
+* PUT http://localhost:8080/recipes/addRecipe Adds a new recipe if a recipe with the same title does not exist already.
 
 If the request is successful JSON data will be returned; otherwise an error message.
 
+## Example request
 
-An example (can also be found in the Recipes/recipes/test_recipe/ folder) for testing addRecipe functionality (with Postman application for example):
+An example (can also be found in the Recipes/recipes/test_recipe/ folder) for testing addRecipe functionality (with the *Postman* application for example):
 ```
 <recipe>
     <head>
